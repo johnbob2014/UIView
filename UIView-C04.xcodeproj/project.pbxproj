@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B10A6511D016CA900F0208C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B10A6501D016CA900F0208C /* Storyboard.storyboard */; };
 		4B588EBA1D01258C00890717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B588EB91D01258C00890717 /* Assets.xcassets */; };
 		4B588EBD1D01258C00890717 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B588EBB1D01258C00890717 /* LaunchScreen.storyboard */; };
 		4B588EC61D0128A500890717 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B588EC51D0128A500890717 /* main.m */; };
 		4B588EC91D01293F00890717 /* UIView+NameExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B588EC81D01293F00890717 /* UIView+NameExtensions.m */; };
+		4BECF7A41D056E9500AF1B9A /* UIView+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BECF7A31D056E9500AF1B9A /* UIView+Transform.m */; };
+		4BECF7A71D05775100AF1B9A /* UIView+ViewFrameGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BECF7A61D05775100AF1B9A /* UIView+ViewFrameGeometry.m */; };
+		4BECF7A91D05794800AF1B9A /* TestBedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BECF7A81D05794800AF1B9A /* TestBedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B10A6501D016CA900F0208C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		4B588EAA1D01258C00890717 /* UIView-C04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIView-C04.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B588EB91D01258C00890717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B588EBC1D01258C00890717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -22,6 +27,11 @@
 		4B588EC51D0128A500890717 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4B588EC71D01293F00890717 /* UIView+NameExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NameExtensions.h"; path = "03-UIView+NameExtensions/UIView+NameExtensions.h"; sourceTree = "<group>"; };
 		4B588EC81D01293F00890717 /* UIView+NameExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+NameExtensions.m"; path = "03-UIView+NameExtensions/UIView+NameExtensions.m"; sourceTree = "<group>"; };
+		4BECF7A21D056E9500AF1B9A /* UIView+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Transform.h"; path = "05-UIView+Transform/UIView+Transform.h"; sourceTree = "<group>"; };
+		4BECF7A31D056E9500AF1B9A /* UIView+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Transform.m"; path = "05-UIView+Transform/UIView+Transform.m"; sourceTree = "<group>"; };
+		4BECF7A51D05775100AF1B9A /* UIView+ViewFrameGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ViewFrameGeometry.h"; path = "05-UIView+Transform/UIView+ViewFrameGeometry.h"; sourceTree = "<group>"; };
+		4BECF7A61D05775100AF1B9A /* UIView+ViewFrameGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ViewFrameGeometry.m"; path = "05-UIView+Transform/UIView+ViewFrameGeometry.m"; sourceTree = "<group>"; };
+		4BECF7A81D05794800AF1B9A /* TestBedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestBedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +64,15 @@
 		4B588EAC1D01258C00890717 /* UIView-C04 */ = {
 			isa = PBXGroup;
 			children = (
-				4B588EC41D01260900890717 /* Utility.h */,
 				4B588EBB1D01258C00890717 /* LaunchScreen.storyboard */,
+				4B10A6501D016CA900F0208C /* Storyboard.storyboard */,
 				4B588EB91D01258C00890717 /* Assets.xcassets */,
 				4B588EBE1D01258C00890717 /* Info.plist */,
 				4B588EC51D0128A500890717 /* main.m */,
+				4B588EC41D01260900890717 /* Utility.h */,
+				4BECF7A81D05794800AF1B9A /* TestBedViewController.m */,
+				4BECF7AA1D057AF600AF1B9A /* 11-KeyframeAnimations */,
+				4BECF7A11D056E4400AF1B9A /* 05-UIView+Transform */,
 				4B588ECA1D01294700890717 /* 03-UIView+NameExtensions */,
 			);
 			path = "UIView-C04";
@@ -71,6 +85,24 @@
 				4B588EC81D01293F00890717 /* UIView+NameExtensions.m */,
 			);
 			name = "03-UIView+NameExtensions";
+			sourceTree = "<group>";
+		};
+		4BECF7A11D056E4400AF1B9A /* 05-UIView+Transform */ = {
+			isa = PBXGroup;
+			children = (
+				4BECF7A21D056E9500AF1B9A /* UIView+Transform.h */,
+				4BECF7A31D056E9500AF1B9A /* UIView+Transform.m */,
+				4BECF7A51D05775100AF1B9A /* UIView+ViewFrameGeometry.h */,
+				4BECF7A61D05775100AF1B9A /* UIView+ViewFrameGeometry.m */,
+			);
+			name = "05-UIView+Transform";
+			sourceTree = "<group>";
+		};
+		4BECF7AA1D057AF600AF1B9A /* 11-KeyframeAnimations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "11-KeyframeAnimations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +164,7 @@
 			files = (
 				4B588EBD1D01258C00890717 /* LaunchScreen.storyboard in Resources */,
 				4B588EBA1D01258C00890717 /* Assets.xcassets in Resources */,
+				4B10A6511D016CA900F0208C /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +177,9 @@
 			files = (
 				4B588EC61D0128A500890717 /* main.m in Sources */,
 				4B588EC91D01293F00890717 /* UIView+NameExtensions.m in Sources */,
+				4BECF7A91D05794800AF1B9A /* TestBedViewController.m in Sources */,
+				4BECF7A41D056E9500AF1B9A /* UIView+Transform.m in Sources */,
+				4BECF7A71D05775100AF1B9A /* UIView+ViewFrameGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +322,7 @@
 				4B588EC31D01258C00890717 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

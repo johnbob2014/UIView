@@ -40,4 +40,20 @@ static const char kNameTag;
     
     return nil;
 }
+
+//Recursively travel down the view tree,increasing the indentation level for children
+- (void)dumpViewAtIndent:(int)indent intoMutalbeString:(NSMutableString *)outString{
+    //Add the indentation
+    for (int i = 0; i < indent; i++)
+        [outString appendString:@"--"];
+    
+    //Add the class description
+    [outString appendFormat:@"[%2d] %@\n",indent,[[self class] description]];
+    
+    //Recurse on subviews
+    for (UIView *subView in self.subviews) {
+        [subView dumpViewAtIndent:indent + 1 intoMutalbeString:outString];
+    }
+}
+
 @end

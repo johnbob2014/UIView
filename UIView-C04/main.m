@@ -8,39 +8,8 @@
 
 @import UIKit;
 @import QuartzCore;
-#import "Utility.h"
-#import "UIView+NameExtensions.h"
 
-
-#pragma mark - TestBedViewController
-
-@interface TestBedViewController : UIViewController
-@end
-
-@implementation TestBedViewController
-
-- (void) action:(id)sender
-{
-    UISwitch *aSwitch = (UISwitch *) [self.view viewNamed:@"topSwitch"];
-    aSwitch.on = !aSwitch.isOn;
-    
-    ((UILabel *)[self.view viewNamed:@"infoLabel"]).text = [NSString stringWithFormat:@"The switch is %@", aSwitch.isOn ? @"on" : @"off"];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
-}
-
-- (void) viewDidLoad
-{
-    [super viewDidLoad];
-    ((UILabel *)[self.view viewNamed:@"infoLabel"]).text = @"The switch is on";
-    self.navigationItem.rightBarButtonItem = BARBUTTON(@"Action", @selector(action:));
-}
-
-@end
-
+#import "TestBedViewController.m"
 
 #pragma mark - Application Setup
 
@@ -54,7 +23,7 @@
 {
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.tintColor = COOKBOOK_PURPLE_COLOR;
-    TestBedViewController *tbvc = [[TestBedViewController alloc] init];
+    TBVC_11 *tbvc = [[TBVC_11 alloc] init];
     tbvc.edgesForExtendedLayout = UIRectEdgeNone;
     tbvc.view.backgroundColor=[UIColor whiteColor];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tbvc];

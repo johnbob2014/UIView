@@ -12,5 +12,5 @@
 
 @property (nonatomic,strong) NSString *nameTag;
 - (UIView *)viewNamed:(NSString *)aName;
-
+- (void)dumpViewAtIndent:(int)indent intoMutalbeString:(NSMutableString *)outString;
 @end
