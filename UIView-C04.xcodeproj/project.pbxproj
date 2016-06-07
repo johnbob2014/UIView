@@ -27,6 +27,7 @@
 		4B588EC51D0128A500890717 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4B588EC71D01293F00890717 /* UIView+NameExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+NameExtensions.h"; path = "03-UIView+NameExtensions/UIView+NameExtensions.h"; sourceTree = "<group>"; };
 		4B588EC81D01293F00890717 /* UIView+NameExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+NameExtensions.m"; path = "03-UIView+NameExtensions/UIView+NameExtensions.m"; sourceTree = "<group>"; };
+		4B7020F21D06C45000F5C6E2 /* TestBedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBedViewController.h; sourceTree = "<group>"; };
 		4BECF7A21D056E9500AF1B9A /* UIView+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Transform.h"; path = "05-UIView+Transform/UIView+Transform.h"; sourceTree = "<group>"; };
 		4BECF7A31D056E9500AF1B9A /* UIView+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Transform.m"; path = "05-UIView+Transform/UIView+Transform.m"; sourceTree = "<group>"; };
 		4BECF7A51D05775100AF1B9A /* UIView+ViewFrameGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ViewFrameGeometry.h"; path = "05-UIView+Transform/UIView+ViewFrameGeometry.h"; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 				4B588EBE1D01258C00890717 /* Info.plist */,
 				4B588EC51D0128A500890717 /* main.m */,
 				4B588EC41D01260900890717 /* Utility.h */,
+				4B7020F21D06C45000F5C6E2 /* TestBedViewController.h */,
 				4BECF7A81D05794800AF1B9A /* TestBedViewController.m */,
 				4BECF7AA1D057AF600AF1B9A /* 11-KeyframeAnimations */,
 				4BECF7A11D056E4400AF1B9A /* 05-UIView+Transform */,

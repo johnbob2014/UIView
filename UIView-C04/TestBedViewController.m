@@ -6,13 +6,12 @@
 //  Copyright © 2016年 BobZhang. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
+#import "TestBedViewController.h"
 #import "Utility.h"
 
 #pragma mark - TBVC_03
 #import "UIView+NameExtensions.h"
-@interface TBVC_03 : UIViewController
-@end
 
 @implementation TBVC_03
 
@@ -57,9 +56,6 @@
 
 #pragma mark - TBVC_11
 
-@interface TBVC_11 : UIViewController
-@end
-
 @implementation TBVC_11{
     UIView *bounceView;
 }
@@ -72,7 +68,7 @@
 
 - (void)loadView{
     self.view = [[UIView alloc] init];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor grayColor];
     
     bounceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
     bounceView.backgroundColor = [UIColor blueColor];
@@ -95,7 +91,135 @@
 
 - (void)bounce{
     [self enable:NO];
+    bounceView.transform = CGAffineTransformMakeScale(0.001f, 0.001f);
+    bounceView.center = RECTCENTER(self.view.bounds);
     
+    //定义关键帧，放入块中备用（此处也可以不用块，直接在执行关键帧动画时定义。但是这样代码更为清晰易懂。）
+    void(^keyframesAnimations)() = ^() {
+        [UIView addKeyframeWithRelativeStartTime:0.0
+                                relativeDuration:0.5
+                                      animations:^{
+                                          bounceView.transform = CGAffineTransformMakeScale(1.5f, 1.5f);
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.5
+                                relativeDuration:0.5
+                                      animations:^{
+                                          bounceView.transform = CGAffineTransformIdentity;
+        }];
+    };
+    
+    //执行关键帧动画，传入关键帧块
+    [UIView animateKeyframesWithDuration:0.6
+                                   delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeCubic
+                              animations:keyframesAnimations
+                              completion:^(BOOL finished) {
+                                  [self enable:YES];
+                              }];
+}
+
+- (void)actionZoom{
+    CGFloat midX = CGRectGetMidX(self.view.bounds);
+    CGFloat midY = CGRectGetMidY(self.view.bounds);
+    CGAffineTransform transientTransform = CGAffineTransformMakeScale(1.2f, 1.2f);
+    CGAffineTransform shrinkTransform = CGAffineTransformMakeScale(0.001f, 0.001f);
+    
+    [self enable:NO];
+    bounceView.center = CGPointMake(midX, midY);
+    bounceView.transform = shrinkTransform;
+    
+    void(^keyframesAnimations)() = ^(){
+        [UIView addKeyframeWithRelativeStartTime:0.0
+                                relativeDuration:0.5 animations:^{
+                                    bounceView.transform = transientTransform;
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.5
+                                relativeDuration:0.5
+                                      animations:^{
+                                    bounceView.transform = CGAffineTransformIdentity;
+        }];
+    };
+    
+    //嵌套关键帧动画！语法比较复杂
+    // I had this as one animation block originally using calculated durations and start times.
+    // Apparently, the long (2 second) delay between the bounce in and bounce out seem to make
+    // things go wonky.  Breaking them up in two animations with a delay solved things.
+    [UIView animateKeyframesWithDuration:0.6
+                                   delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeCubic
+                              animations:keyframesAnimations
+                              completion:^(BOOL finished) {
+                                  [UIView animateKeyframesWithDuration:0.6
+                                                                 delay:2.0
+                                                               options:UIViewKeyframeAnimationOptionCalculationModeCubic
+                                                            animations:keyframesAnimations
+                                                            completion:^(BOOL finished) {
+                                                                [self enable:YES];
+                                                            }];
+                              }];
+    
+    
+}
+
+- (void)actionMove
+{
+    CGFloat midX = CGRectGetMidX(self.view.bounds);
+    CGFloat midY = CGRectGetMidY(self.view.bounds);
+    CGPoint centerPoint = CGPointMake(midX, midY);
+    CGPoint beyondPoint = CGPointMake(midX * 1.2f, midY);
+    CGPoint offScreenPoint = CGPointMake(-midX, midY);
+    
+    [self enable:NO];
+    bounceView.center = CGPointMake(-midX, midY);
+    bounceView.transform = CGAffineTransformIdentity;
+    
+    void(^keyframesAnimationsOne)() = ^() {
+        [UIView addKeyframeWithRelativeStartTime:0.0
+                                relativeDuration:0.5
+                                      animations:^{
+                                          bounceView.center = beyondPoint;
+                                      }];
+        
+        [UIView addKeyframeWithRelativeStartTime:0.5
+                                relativeDuration:0.5
+                                      animations:^{
+                                          bounceView.center = centerPoint;
+                                      }];
+    };
+    
+    void(^keyframesAnimationsTwo)() = ^() {
+        [UIView addKeyframeWithRelativeStartTime:0.0
+                                relativeDuration:0.5
+                                      animations:^{
+                                          bounceView.center = beyondPoint;
+                                      }];
+        
+        [UIView addKeyframeWithRelativeStartTime:0.5
+                                relativeDuration:0.5
+                                      animations:^{
+                                          bounceView.center = offScreenPoint;
+                                      }];
+    };
+    
+    //嵌套关键帧动画！语法比较复杂
+    // Again, had this in one key frame block originally.  In addition to the timing issues,
+    // discovered an odd bug in the cubic mode calculations that caused a strange floating issue.
+    // Linear mode solved the issue but made for a very stiff / jarring bounce.
+    // Breaking into two separate animations solved the issues.
+    [UIView animateKeyframesWithDuration:0.6
+                                   delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeCubic
+                              animations:keyframesAnimationsOne
+                              completion:^(BOOL finished) {
+                                  [UIView animateKeyframesWithDuration:0.6
+                                                                 delay:2
+                                                               options:UIViewKeyframeAnimationOptionCalculationModeCubic
+                                                            animations:keyframesAnimationsTwo                                                            completion:^(BOOL finished) {
+                                                                [self enable:YES];
+                                                            }
+                                   ];
+                              }
+     ];
 }
 
 @end
