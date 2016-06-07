@@ -11,10 +11,13 @@
 
 @import UIKit;
 
-@interface TBVC_03 : UIViewController
+@interface TBVC_03_NameExtensions : UIViewController
 @end
 
-@interface TBVC_11 : UIViewController
+@interface TBVC_09_CoreAnimation : UIViewController
+@end
+
+@interface TBVC_11_KeyframeAnimations : UIViewController
 @end
 
 #endif /* TestBedViewController_h */

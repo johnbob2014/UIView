@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EDDBE621D0720B100B6BDFC /* GeneralMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBE611D0720B100B6BDFC /* GeneralMethod.m */; };
 		4B10A6511D016CA900F0208C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B10A6501D016CA900F0208C /* Storyboard.storyboard */; };
 		4B588EBA1D01258C00890717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B588EB91D01258C00890717 /* Assets.xcassets */; };
 		4B588EBD1D01258C00890717 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B588EBB1D01258C00890717 /* LaunchScreen.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EDDBE601D0720B100B6BDFC /* GeneralMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralMethod.h; sourceTree = "<group>"; };
+		1EDDBE611D0720B100B6BDFC /* GeneralMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralMethod.m; sourceTree = "<group>"; };
 		4B10A6501D016CA900F0208C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		4B588EAA1D01258C00890717 /* UIView-C04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIView-C04.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B588EB91D01258C00890717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EDDBE5F1D0720B100B6BDFC /* GeneralMethod */ = {
+			isa = PBXGroup;
+			children = (
+				1EDDBE601D0720B100B6BDFC /* GeneralMethod.h */,
+				1EDDBE611D0720B100B6BDFC /* GeneralMethod.m */,
+			);
+			path = GeneralMethod;
+			sourceTree = "<group>";
+		};
 		4B588EA11D01258C00890717 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +77,7 @@
 		4B588EAC1D01258C00890717 /* UIView-C04 */ = {
 			isa = PBXGroup;
 			children = (
+				1EDDBE5F1D0720B100B6BDFC /* GeneralMethod */,
 				4B588EBB1D01258C00890717 /* LaunchScreen.storyboard */,
 				4B10A6501D016CA900F0208C /* Storyboard.storyboard */,
 				4B588EB91D01258C00890717 /* Assets.xcassets */,
@@ -178,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B588EC61D0128A500890717 /* main.m in Sources */,
+				1EDDBE621D0720B100B6BDFC /* GeneralMethod.m in Sources */,
 				4B588EC91D01293F00890717 /* UIView+NameExtensions.m in Sources */,
 				4BECF7A91D05794800AF1B9A /* TestBedViewController.m in Sources */,
 				4BECF7A41D056E9500AF1B9A /* UIView+Transform.m in Sources */,
@@ -288,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "UIView-C04/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.BobZhang.UIView-C04";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "UIView-C04/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.BobZhang.UIView-C04";
 				PRODUCT_NAME = "$(TARGET_NAME)";

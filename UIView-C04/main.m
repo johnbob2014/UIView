@@ -24,7 +24,7 @@
 {
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.tintColor = COOKBOOK_PURPLE_COLOR;
-    TBVC_11 *tbvc = [[TBVC_11 alloc] init];
+    TBVC_09_CoreAnimation *tbvc = [[TBVC_09_CoreAnimation alloc] init];
     tbvc.edgesForExtendedLayout = UIRectEdgeNone;
     tbvc.view.backgroundColor=[UIColor whiteColor];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tbvc];

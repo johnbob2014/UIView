@@ -1,5 +1,5 @@
 //
-//  TBVC_03.m
+//  TBVC_03_NameExtensions.m
 //  UIView-C04
 //
 //  Created by BobZhang on 16/6/6.
@@ -9,11 +9,12 @@
 
 #import "TestBedViewController.h"
 #import "Utility.h"
+#import "GeneralMethod.h"
 
-#pragma mark - TBVC_03
+#pragma mark - TBVC_03_NameExtensions
 #import "UIView+NameExtensions.h"
 
-@implementation TBVC_03
+@implementation TBVC_03_NameExtensions
 
 - (void) action:(id)sender
 {
@@ -54,9 +55,78 @@
 
 @end
 
+#pragma mark - TBVC_09
+@import QuartzCore;
+
+@implementation TBVC_09_CoreAnimation{
+    UIImageView *frontIV;
+    UIImageView *backIV;
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    
+    UISegmentedControl *sc = [[UISegmentedControl alloc] initWithItems:[@"Fade Over Push Reveal" componentsSeparatedByString:@" "]];
+    sc.selectedSegmentIndex = 0;
+    self.navigationItem.titleView = sc;
+    
+    backIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Maroon"]];
+    [self.view addSubview:backIV];
+    backIV.translatesAutoresizingMaskIntoConstraints = NO;
+    CENTER_VIEW_V(self.view, backIV);
+    ALIGN_VIEW_LEFT(self.view, backIV);
+    
+    frontIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Purple"]];
+    [self.view addSubview:frontIV];
+    frontIV.translatesAutoresizingMaskIntoConstraints = NO;
+    CENTER_VIEW_V(self.view, frontIV);
+    ALIGN_VIEW_RIGHT(self.view, frontIV);
+    
+    self.navigationItem.rightBarButtonItem = BARBUTTON(@"Go", @selector(animate:));
+}
+
+- (void)animationDidStart:(CAAnimation *)anim{
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
+- (void)animate:(id)sender{
+    CATransition *transition = [CATransition animation];
+    transition.delegate = self;
+    transition.duration = 1.0f;
+    transition.timingFunction = UIViewAnimationCurveEaseInOut;
+    
+    switch ([(UISegmentedControl *)self.navigationItem.titleView selectedSegmentIndex]) {
+        case 0:
+            transition.type = kCATransitionFade;
+            break;
+        case 1:
+            transition.type = kCATransitionMoveIn;
+            break;
+        case 2:
+            transition.type = kCATransitionPush;
+            break;
+        case 3:
+            transition.type = kCATransitionReveal;
+            break;
+        default:
+            break;
+    }
+    
+    transition.subtype = kCATransitionFromBottom;
+    
+    //[self.view exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+    [self.view setBackgroundColor:[GM randomUIColor]];
+    [self.view.layer addAnimation:transition forKey:@"key"];
+}
+@end
+
 #pragma mark - TBVC_11
 
-@implementation TBVC_11{
+@implementation TBVC_11_KeyframeAnimations{
     UIView *bounceView;
 }
 
