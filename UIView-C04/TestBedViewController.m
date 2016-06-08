@@ -18,10 +18,10 @@
 
 - (void) action:(id)sender
 {
-    UISwitch *aSwitch = (UISwitch *) [self.view viewNamed:@"topSwitch"];
+    UISwitch *aSwitch = (UISwitch *) [self.view viewWithNameTag:@"topSwitch"];
     aSwitch.on = !aSwitch.isOn;
     
-    ((UILabel *)[self.view viewNamed:@"infoLabel"]).text = [NSString stringWithFormat:@"The switch is %@", aSwitch.isOn ? @"on" : @"off"];
+    ((UILabel *)[self.view viewWithNameTag:@"infoLabel"]).text = [NSString stringWithFormat:@"The switch is %@", aSwitch.isOn ? @"on" : @"off"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -35,11 +35,11 @@
     
     [self addSomeViewByNameTag];
     
-    ((UILabel *)[self.view viewNamed:@"infoLabel"]).text = @"The switch is on";
+    ((UILabel *)[self.view viewWithNameTag:@"infoLabel"]).text = @"The switch is on";
     self.navigationItem.rightBarButtonItem = BARBUTTON(@"Action", @selector(action:));
     
     NSMutableString *infoString=[[NSMutableString alloc]init];
-    [self.view dumpViewAtIndent:0 intoMutalbeString:infoString];
+    [self.view dumpViewIntoMutableString:infoString];
     NSLog(@"\n%@",infoString);
 }
 

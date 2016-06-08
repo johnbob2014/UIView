@@ -10,7 +10,19 @@
 
 @interface UIView (NameExtensions)
 
+/**
+视图的nameTag属性 - NameExtensions
+ */
 @property (nonatomic,strong) NSString *nameTag;
-- (UIView *)viewNamed:(NSString *)aName;
-- (void)dumpViewAtIndent:(int)indent intoMutalbeString:(NSMutableString *)outString;
+
+/**
+查找指定nameTag的视图 - NameExtensions
+ */
+- (UIView *)viewWithNameTag:(NSString *)aNameTag;
+
+/**
+分析视图层级，并输出到给定的可变字符串 - NameExtensions
+ */
+- (void)dumpViewIntoMutableString:(NSMutableString *)outString;
+
 @end

@@ -25,16 +25,16 @@ static const char kNameTag;
 
 #pragma mark Methods
 
-- (UIView *)viewNamed:(NSString *)aName{
-    if (!aName) return nil;
+- (UIView *)viewWithNameTag:(NSString *)aNameTag{
+    if (!aNameTag) return nil;
     
-    if ([self.nameTag isEqualToString:aName]) {
+    if ([self.nameTag isEqualToString:aNameTag]) {
         return self;
     }
     
     for (UIView *subView in self.subviews) {
-        //Recursively call viewNamed: method to check subviews
-        UIView *resultView=[subView viewNamed:aName];
+        //Recursively call viewWithNameTag: method to check subviews
+        UIView *resultView=[subView viewWithNameTag:aNameTag];
         if (resultView) return resultView;
     }
     
@@ -42,7 +42,7 @@ static const char kNameTag;
 }
 
 //Recursively travel down the view tree,increasing the indentation level for children
-- (void)dumpViewAtIndent:(int)indent intoMutalbeString:(NSMutableString *)outString{
+- (void)dumpViewAtIndent:(int)indent intoMutableString:(NSMutableString *)outString{
     //Add the indentation
     for (int i = 0; i < indent; i++)
         [outString appendString:@"--"];
@@ -52,8 +52,12 @@ static const char kNameTag;
     
     //Recurse on subviews
     for (UIView *subView in self.subviews) {
-        [subView dumpViewAtIndent:indent + 1 intoMutalbeString:outString];
+        [subView dumpViewAtIndent:indent + 1 intoMutableString:outString];
     }
+}
+
+- (void)dumpViewIntoMutableString:(NSMutableString *)outString{
+    [self dumpViewAtIndent:0 intoMutableString:outString];
 }
 
 @end
