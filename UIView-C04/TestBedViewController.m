@@ -55,6 +55,71 @@
 
 @end
 
+#pragma mark - TBVC_06_Fade
+
+@implementation TBVC_06_Fade{
+    UIImageView *imageView;
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor clearColor];
+    self.navigationItem.rightBarButtonItem = BARBUTTON(@"Fade In", @selector(fadeIn:));
+    
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Maroon"]];
+    [self.view addSubview:imageView];
+    imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    CENTER_VIEW(self.view, imageView);
+}
+
+- (void)fadeIn:(id)sender{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [UIView animateWithDuration:1.0f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         imageView.alpha = 1.0f;
+                         
+                         /*
+                         [self removeConstraints];
+                         CENTER_VIEW_H(self.view, imageView);
+                         ALIGN_VIEW_TOP(self.view, imageView);
+                         */
+                         
+                     } completion:^(BOOL finished) {
+                         self.navigationItem.rightBarButtonItem.enabled = YES;
+                         self.navigationItem.rightBarButtonItem = BARBUTTON(@"Fade Out", @selector(fadeOut:));
+                     }];
+}
+
+- (void)fadeOut:(id)sender{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    [UIView animateWithDuration:1.0f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         imageView.alpha = 0.1f;
+                         
+                         /*
+                         [self removeConstraints];
+                         CENTER_VIEW_H(self.view, imageView);
+                         ALIGN_VIEW_BOTTOM(self.view, imageView);
+                          */
+                         
+                     } completion:^(BOOL finished) {
+                         self.navigationItem.rightBarButtonItem.enabled = YES;
+                         self.navigationItem.rightBarButtonItem = BARBUTTON(@"Fade In", @selector(fadeIn:));
+                     }];
+}
+
+- (void)removeConstraints{
+    [self.view removeConstraints:self.view.constraints];
+    [imageView removeConstraints:imageView.constraints];
+}
+
+@end
+
 #pragma mark - TBVC_09
 @import QuartzCore;
 

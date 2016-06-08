@@ -14,6 +14,9 @@
 @interface TBVC_03_NameExtensions : UIViewController
 @end
 
+@interface TBVC_06_Fade : UIViewController
+@end
+
 @interface TBVC_09_CoreAnimation : UIViewController
 @end
 
